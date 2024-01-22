@@ -11,7 +11,7 @@ const App = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await fetch('http://your_backend_url/register', {
+      const response = await fetch('http://localhost:5000/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
