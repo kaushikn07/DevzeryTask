@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import '../styles/Dashboard.css';
 const UpdateProfile = () => {
   const [oldEmail, setOldEmail] = useState("");
   const [newUsername, setNewUsername] = useState("");

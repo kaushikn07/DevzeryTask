@@ -1,0 +1,30 @@
+/* styles.css */
+
+.display-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .display-container h3 {
+    color: #333;
+  }
+  
+  .display-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .display-container li {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  /* Add specific styles for your list items if needed */
+  

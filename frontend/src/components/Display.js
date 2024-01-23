@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import '../styles/Display.css';
 function Display() {
   const [allProfiles, setAllProfiles] = useState([]);
   useEffect(() => {

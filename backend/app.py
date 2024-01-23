@@ -3,18 +3,35 @@ from flask_cors import CORS
 import sqlite3
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app)
 # Function to get a new database connection
 def get_db():
     return sqlite3.connect('devzery.db')
 
+def create_table():
+    with get_db() as conn:
+        cursor = conn.cursor()
+        query = "CREATE TABLE IF NOT EXISTS REGISTRATION (username text, email text primary key, password text);"
+        cursor.execute(query)
+        conn.commit()
+
+# Check if the table exists; if not, create it
+with get_db() as conn:
+    cursor = conn.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='REGISTRATION';")
+    table_exists = cursor.fetchone()
+
+if not table_exists:
+    create_table()
+
+# Create the table before starting the application
+create_table()
 # Register page
 @app.route('/', methods=['GET', 'POST'])
 def register():
     if request.method == 'GET':
         # Fetch all data from the database
         with get_db() as conn:
-            cursor = conn.cursor()
             select_all_query = 'SELECT * FROM REGISTRATION;'
             cursor.execute(select_all_query)
             all_data = cursor.fetchall()

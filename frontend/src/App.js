@@ -6,19 +6,20 @@ import {
   Link,
 } from "react-router-dom";
 
-import Home from './Home'
-import Display from "./Display";
-import Dashboard from './Dashboard';
+import Home from './components/Home'
+import Display from "./components/Display";
+import Dashboard from './components/Dashboard';
 import React from "react";
+
 
 function App() {
   return (
     <div>
       <Router>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/dashboard">Change details</Link>
-          <Link to="/display">View Users</Link>
+          <div><Link to="/">Home</Link></div>
+          <div><Link to="/dashboard">Change details</Link></div>
+          <div><Link to="/display">View Users</Link></div>
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
