@@ -1,8 +1,9 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import sqlite3
 
 app = Flask(__name__)
-
+CORS(app) 
 # Function to get a new database connection
 def get_db():
     return sqlite3.connect('devzery.db')
@@ -44,7 +45,8 @@ def register():
         else:
             # User is already registered
             return {"status": 'already registered'}
-@app.route('/display', methods = 'GET')
+        
+@app.route('/display', methods=['GET'])
 def get_profiles():
     with get_db() as conn:
         cursor = conn.cursor()
@@ -56,6 +58,7 @@ def get_profiles():
         profiles_list = [{'username': profile[0]} for profile in profiles]
 
     return jsonify({'profiles': profiles_list})
+
 @app.route('/dashboard', methods=['POST'])
 def update_profile():
     data = request.get_json()
